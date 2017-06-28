@@ -1,0 +1,23 @@
+<html ng-app="todoapp">
+<head>
+  <script src="angular.js"></script>
+  <script src="app.js"></script>
+</head>
+<body>
+  <h1>
+    List of Todos
+  </h1>
+  <div ng-controller="todoctrl as ctrl">
+    <button  ng-hide="ctrl.editmode" ng-click="ctrl.setedittodo()">Edit</button>
+    <button ng-show="ctrl.editmode" ng-click="ctrl.setedittodo()">Done</button>
+     <ol>
+       <li ng-repeat="i in ctrl.mylist">
+         <input ng-show="ctrl.editmode" ng-model="i" type="text"></input>
+         <p ng-hide="ctrl.editmode">{{i}}</p>
+       </li>
+     </ol>
+     <input type="text" ng-model="ctrl.toadd"></input>
+     <button ng-click="ctrl.addtodo()">Add todo</button>
+  </div>
+</body>
+</html>
